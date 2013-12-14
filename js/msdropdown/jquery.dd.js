@@ -68,6 +68,7 @@ function dd(element, settings) {
 		disabledOpacity: 0.7,
 		disabledOptionEvents: true,
 		childWidth:0,
+		addToWidth:0,
 		enableCheckbox:false, //this needs to multiple or it will set element to multiple
 		checkboxNameSuffix:'_mscheck',
 		append:'',
@@ -110,6 +111,7 @@ function dd(element, settings) {
 		settings.jsonTitle = $("#"+element).data("jsontitle") || settings.jsonTitle;
 		settings.disabledOpacity = $("#"+element).data("disabledopacity") || settings.disabledOpacity;
 		settings.childWidth = $("#"+element).data("childwidth") || settings.childWidth;
+		settings.addToWidth = $("#"+element).data("addToWidth") || settings.addToWidth;
 		settings.enableCheckbox = $("#"+element).data("enablecheckbox") || settings.enableCheckbox;
 		settings.checkboxNameSuffix = $("#"+element).data("checkboxnamesuffix") || settings.checkboxNameSuffix;
 		settings.append = $("#"+element).data("append") || settings.append;
@@ -289,7 +291,7 @@ function dd(element, settings) {
 			className: css.dd + " ddcommon"+brdRds
 		};
 		var intcss = getInternalStyle(getElement(element));
-		var w = $("#" + element).outerWidth();
+		var w = $("#" + element).outerWidth() + settings.addToWidth;
 		obj.style = "width: " + w + "px;";
 		if (intcss.length > 0) {
 			obj.style = obj.style + "" + intcss;
